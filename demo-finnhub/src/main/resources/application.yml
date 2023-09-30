@@ -1,0 +1,52 @@
+server.port: 8082
+
+api:
+  finnhub:
+    token: "ck4fjshr01qus81pv3ogck4fjshr01qus81pv3p0"
+    domain: "finnhub.io"
+    base-url: "api/v1"
+    endpoints:
+      stock:
+        profile2: "/stock/profile2"
+        quote: "/quote"
+        symbol: "/stock/symbol"
+
+redis-key:
+  company-profile2: "demo-finnhub:companyprofile2"
+
+spring.datasource:
+  driverClassName: "org.hibernate.dialect.PostgreSQLDialect"
+  #driverClassName: 'org.h2.Driver'
+  # url: 'jdbc:h2:mem:testdb;DB_CLOSE_ON_EXIT=FALSE'
+  #url: 'jdbc:h2:mem:testdb'
+  #username: 'sa'
+  #password:
+  url: "jdbc:postgresql://localhost:5432/postgres"
+  username: "postgres"
+  password: "admin1234"
+spring:
+  h2:
+    console:
+      enabled: true
+
+spring.jpa:
+  show-sql: true
+  hibernate.ddl-auto: update # update
+  ## Hibernate Properties
+  # properties.hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
+  # properties.hibernate.dialect: org.h2.Driver
+  # Hibernate ddl auto (create, create-drop, validate, update)
+
+spring.data.redis:
+  host: localhost
+  port: 6379
+  database: 0
+  timeout: 60000
+  password:
+
+spring.sql.init:
+  mode: always # always
+  platform: h2
+  # schema-locations: classpath:ddl/DDL_DROPS.sql, classpath:ddl/DDL_TUSERS.sql, classpath:ddl/DDL_TPOSTS.sql
+
+spring.profiles.active: enableScheduling
